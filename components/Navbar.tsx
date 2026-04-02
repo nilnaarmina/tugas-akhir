@@ -34,7 +34,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/Logo.png.png"
+            src="/Logo.png"
             alt="Aflaha Hijab Expert Syar'i"
             width={120}
             height={48}

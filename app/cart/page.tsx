@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, MessageCircle } from "lucide-react";
+import { Trash2, Plus, Minus, ShoppingBag, ArrowRight } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/data";
 
@@ -10,14 +10,6 @@ export default function CartPage() {
 
   const shipping = totalPrice >= 300000 ? 0 : 15000;
   const grandTotal = totalPrice + shipping;
-
-  const handleCheckoutWA = () => {
-    const lines = items.map(
-      (i) => `• ${i.product.name} (${i.size}, ${i.color}) x${i.quantity} = ${formatPrice(i.product.price * i.quantity)}`
-    );
-    const msg = `Halo Aflaha! Saya ingin memesan:\n\n${lines.join("\n")}\n\nTotal: ${formatPrice(grandTotal)}\n\nMohon konfirmasi ketersediaan. Terima kasih 🙏`;
-    window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`, "_blank");
-  };
 
   if (items.length === 0) {
     return (
@@ -106,10 +98,10 @@ export default function CartPage() {
                 </div>
               </div>
 
-              <button onClick={handleCheckoutWA}
-                className="w-full bg-[#25D366] text-white py-3.5 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-[#1da851] transition-colors mb-3">
-                <MessageCircle size={18} /> Checkout via WhatsApp
-              </button>
+              <Link href="/checkout"
+                className="w-full bg-[#4A2C2A] text-white py-3.5 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-[#C4826A] transition-colors mb-3">
+                Checkout <ArrowRight size={18} />
+              </Link>
 
               <Link href="/shop"
                 className="w-full border border-[#E8C4B8] text-[#4A2C2A] py-3 rounded-full text-sm flex items-center justify-center gap-2 hover:border-[#C4826A] transition-colors">

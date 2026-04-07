@@ -62,7 +62,7 @@ export default function Navbar() {
 
         {/* Icons */}
         <div className="flex items-center gap-3">
-          <Link href="/shop" className="relative text-[#4A2C2A] hover:text-[#C4826A] transition-colors">
+          <Link href="/shop" aria-label="Wishlist" className="relative text-[#4A2C2A] hover:text-[#C4826A] transition-colors">
             <Heart size={20} />
             {wishlist.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-[#C4826A] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function Navbar() {
               </span>
             )}
           </Link>
-          <Link href="/cart" className="relative text-[#4A2C2A] hover:text-[#C4826A] transition-colors">
+          <Link href="/cart" aria-label="Keranjang belanja" className="relative text-[#4A2C2A] hover:text-[#C4826A] transition-colors">
             <ShoppingBag size={20} />
             {totalItems > 0 && (
               <span className="absolute -top-2 -right-2 bg-[#C4826A] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
@@ -83,6 +83,7 @@ export default function Navbar() {
           {user ? (
             <div className="relative hidden md:block">
               <button onClick={() => setUserMenuOpen(!userMenuOpen)}
+                aria-label="Menu pengguna"
                 className="w-8 h-8 rounded-full bg-[#C4826A] flex items-center justify-center text-white hover:bg-[#8B5E52] transition-colors">
                 <User size={16} />
               </button>
@@ -111,7 +112,7 @@ export default function Navbar() {
             </Link>
           )}
 
-          <button className="md:hidden text-[#4A2C2A]" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="md:hidden text-[#4A2C2A]" aria-label={menuOpen ? "Tutup menu" : "Buka menu"} onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>

@@ -49,7 +49,7 @@ export default function ProductCard({ product }: { product: Product }) {
             <button
               onClick={(e) => { e.preventDefault(); setShowQuickView(true); }}
               className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#C4826A] hover:text-white transition-colors shadow-md"
-              title="Quick View"
+              aria-label="Quick view"
             >
               <Eye size={16} />
             </button>
@@ -58,7 +58,7 @@ export default function ProductCard({ product }: { product: Product }) {
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-md ${
                 wishlisted ? "bg-[#C4826A] text-white" : "bg-white hover:bg-[#C4826A] hover:text-white"
               }`}
-              title="Wishlist"
+              aria-label={wishlisted ? "Hapus dari wishlist" : "Tambah ke wishlist"}
             >
               <Heart size={16} fill={wishlisted ? "currentColor" : "none"} />
             </button>
@@ -94,6 +94,7 @@ export default function ProductCard({ product }: { product: Product }) {
             </div>
             <button
               onClick={handleAddToCart}
+              aria-label={`Tambah ${product.name} ke keranjang`}
               className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                 added ? "bg-green-500 text-white scale-110" : "bg-[#4A2C2A] text-white hover:bg-[#C4826A]"
               }`}

@@ -35,7 +35,7 @@ export default function QuickViewModal({ product, onClose }: { product: Product;
 
           {/* Details */}
           <div className="sm:w-1/2 p-6 flex flex-col">
-            <button onClick={onClose} className="self-end text-gray-400 hover:text-[#4A2C2A] mb-2">
+            <button onClick={onClose} aria-label="Tutup" className="self-end text-gray-400 hover:text-[#4A2C2A] mb-2">
               <X size={20} />
             </button>
             <p className="text-xs text-[#8B5E52] uppercase tracking-wide mb-1">{product.category}</p>
@@ -81,6 +81,7 @@ export default function QuickViewModal({ product, onClose }: { product: Product;
                 {added ? "Ditambahkan!" : "Add to Cart"}
               </button>
               <button onClick={() => toggleWishlist(product.id)}
+                aria-label={wishlisted ? "Hapus dari wishlist" : "Tambah ke wishlist"}
                 className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${
                   wishlisted ? "bg-[#C4826A] border-[#C4826A] text-white" : "border-[#E8C4B8] text-[#4A2C2A] hover:border-[#C4826A]"
                 }`}>

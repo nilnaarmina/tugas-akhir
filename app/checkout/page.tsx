@@ -46,7 +46,7 @@ export default function CheckoutPage() {
     }
   };
 
-  const handleOrder = () => {
+  const handleOrder = async () => {
     if (!form.name || !form.phone || !form.city || !form.address) {
       alert("Lengkapi detail alamat terlebih dahulu.");
       return;
@@ -56,18 +56,45 @@ export default function CheckoutPage() {
       return;
     }
 
+    const supabase = (await import("@/lib/supabase/client")).createClient();
+    const selectedShipping = SHIPPING_OPTIONS.find((s) => s.id === shipping);
+
+    const orderPayload = {
+      customer_name: form.name,
+      customer_phone: form.phone,
+      customer_email: form.email || null,
+      address: form.address,
+      city: form.city,
+      items: items.map((i) => ({
+        name: i.product.name,
+        price: i.product.price,
+        quantity: i.quantity,
+        size: i.size,
+        color: i.color,
+        image: i.product.image,
+      })),
+      shipping_method: selectedShipping?.label,
+      shipping_cost: shippingCost,
+      payment_method: payment,
+      total_price: grandTotal,
+      note: form.note || null,
+      status: "pending",
+    };
+
+    const { error } = await supabase.from("orders").insert(orderPayload);
+    if (error) { alert("Gagal menyimpan pesanan: " + error.message); return; }
+
     if (payment === "wa") {
       const lines = items.map(
         (i) => `• ${i.product.name} (${i.size}, ${i.color}) x${i.quantity} = ${formatPrice(i.product.price * i.quantity)}`
       );
-      const selectedShipping = SHIPPING_OPTIONS.find((s) => s.id === shipping);
       const msg = `Halo Aflaha! Saya ingin memesan:\n\n${lines.join("\n")}\n\nPengiriman: ${selectedShipping?.label} (${formatPrice(shippingCost)})\nTotal: ${formatPrice(grandTotal)}\n\nNama: ${form.name}\nHP: ${form.phone}\nAlamat: ${form.address}, ${form.city}\n\nMohon konfirmasi. Terima kasih 🙏`;
       window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`, "_blank");
     } else {
       alert(`Pesanan berhasil! Silakan transfer ke rekening ${PAYMENT_OPTIONS.find(p => p.id === payment)?.label}.\n\nTotal: ${formatPrice(grandTotal)}`);
-      clearCart();
-      router.push("/");
     }
+    clearCart();
+    router.push("/");
   };
 
   if (items.length === 0) {

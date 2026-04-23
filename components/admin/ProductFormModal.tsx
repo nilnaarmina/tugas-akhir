@@ -16,9 +16,12 @@ const emptyForm = {
   sizes: "", is_new: false, is_best_seller: false, is_active: true,
 };
 
+const emptySizeChart: Record<string, { panjang: string; lebar: string }> = {};
+
 export default function ProductFormModal({ product, onClose, onSave }: Props) {
   const supabase = createClient();
   const [form, setForm] = useState(emptyForm);
+  const [sizeChart, setSizeChart] = useState<Record<string, { panjang: string; lebar: string }>>(emptySizeChart);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
@@ -44,6 +47,7 @@ export default function ProductFormModal({ product, onClose, onSave }: Props) {
         is_best_seller: product.is_best_seller ?? false,
         is_active: product.is_active ?? true,
       });
+      if (product.size_chart) setSizeChart(product.size_chart);
     }
   }, [product]);
 
@@ -55,10 +59,10 @@ export default function ProductFormModal({ product, onClose, onSave }: Props) {
     const ext = file.name.split(".").pop();
     const fileName = `${Date.now()}.${ext}`;
     const { error: uploadError } = await supabase.storage
-      .from("products")
+      .from("assets.aflaha")
       .upload(fileName, file, { upsert: true });
     if (uploadError) { setError(uploadError.message); setUploading(false); return; }
-    const { data } = supabase.storage.from("products").getPublicUrl(fileName);
+    const { data } = supabase.storage.from("assets.aflaha").getPublicUrl(fileName);
     setForm((prev) => ({ ...prev, image: data.publicUrl }));
     setUploading(false);
   };
@@ -85,6 +89,7 @@ export default function ProductFormModal({ product, onClose, onSave }: Props) {
       is_new: form.is_new,
       is_best_seller: form.is_best_seller,
       is_active: form.is_active,
+      size_chart: Object.keys(sizeChart).length > 0 ? sizeChart : null,
       updated_at: new Date().toISOString(),
     };
 
@@ -164,6 +169,37 @@ export default function ProductFormModal({ product, onClose, onSave }: Props) {
           {field("URL Foto Lainnya (pisah koma)", "images", "text", "https://..., https://...")}
           {field("Warna (pisah koma)", "colors", "text", "Hitam, Navy, Abu-abu")}
           {field("Ukuran (pisah koma)", "sizes", "text", "S, M, L, XL")}
+
+          {/* Size Chart */}
+          {form.sizes && (
+            <div>
+              <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-2 block">Tabel Ukuran (cm)</label>
+              <div className="space-y-2">
+                <div className="grid grid-cols-3 gap-2 text-xs font-medium text-[#8B5E52] px-1">
+                  <span>Ukuran</span><span>Panjang (cm)</span><span>Lebar (cm)</span>
+                </div>
+                {form.sizes.split(",").map((s) => s.trim()).filter(Boolean).map((size, idx) => (
+                  <div key={`${size}-${idx}`} className="grid grid-cols-3 gap-2 items-center">
+                    <span className="text-sm font-medium text-[#4A2C2A] bg-[#F5EDE8] rounded-lg px-3 py-2 text-center">{size}</span>
+                    <input
+                      type="number"
+                      placeholder="cth: 110"
+                      value={sizeChart[size]?.panjang ?? ""}
+                      onChange={(e) => setSizeChart((prev) => ({ ...prev, [size]: { ...prev[size], panjang: e.target.value } }))}
+                      className="w-full px-3 py-2 rounded-xl border border-[#E8C4B8] text-sm focus:outline-none focus:border-[#C4826A] bg-[#FAF7F2]"
+                    />
+                    <input
+                      type="number"
+                      placeholder="cth: 60"
+                      value={sizeChart[size]?.lebar ?? ""}
+                      onChange={(e) => setSizeChart((prev) => ({ ...prev, [size]: { ...prev[size], lebar: e.target.value } }))}
+                      className="w-full px-3 py-2 rounded-xl border border-[#E8C4B8] text-sm focus:outline-none focus:border-[#C4826A] bg-[#FAF7F2]"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="grid grid-cols-3 gap-4">
             {field("Bahan", "material", "text", "Nida Premium")}

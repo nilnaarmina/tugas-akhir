@@ -8,6 +8,8 @@ const nextConfig = {
       { protocol: "https", hostname: "drive.google.com" },
       { protocol: "https", hostname: "lh3.googleusercontent.com" },
       { protocol: "https", hostname: "aogcfyukflljofveppup.supabase.co" },
+      { protocol: "https", hostname: "replicate.delivery" },
+      { protocol: "https", hostname: "pbxt.replicate.delivery" },
     ],
   },
 };

@@ -47,7 +47,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}
-              className="text-sm text-[#4A2C2A] hover:text-[#C4826A] transition-colors tracking-wide relative group">
+              className="text-sm text-[#6B2737] hover:text-[#C4826A] transition-colors tracking-wide relative group">
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#C4826A] transition-all group-hover:w-full" />
             </Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
 
         {/* Icons */}
         <div className="flex items-center gap-3">
-          <Link href="/shop" aria-label="Wishlist" className="relative text-[#4A2C2A] hover:text-[#C4826A] transition-colors">
+          <Link href="/shop" aria-label="Wishlist" className="relative text-[#6B2737] hover:text-[#C4826A] transition-colors">
             <Heart size={20} />
             {wishlist.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-[#C4826A] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function Navbar() {
               </span>
             )}
           </Link>
-          <Link href="/cart" aria-label="Keranjang belanja" className="relative text-[#4A2C2A] hover:text-[#C4826A] transition-colors">
+          <Link href="/cart" aria-label="Keranjang belanja" className="relative text-[#6B2737] hover:text-[#C4826A] transition-colors">
             <ShoppingBag size={20} />
             {totalItems > 0 && (
               <span className="absolute -top-2 -right-2 bg-[#C4826A] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
@@ -94,7 +94,7 @@ export default function Navbar() {
                   </p>
                   {role === "admin" && (
                     <Link href="/admin" onClick={() => setUserMenuOpen(false)}
-                      className="flex items-center gap-2 px-4 py-2 text-sm text-[#4A2C2A] hover:bg-[#FAF7F2] transition-colors">
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-[#6B2737] hover:bg-[#FAF7F2] transition-colors">
                       <Shield size={14} className="text-[#C4826A]" /> Dashboard Admin
                     </Link>
                   )}
@@ -107,12 +107,12 @@ export default function Navbar() {
             </div>
           ) : (
             <Link href="/login"
-              className="hidden md:flex items-center gap-1.5 bg-[#4A2C2A] text-white text-sm px-4 py-2 rounded-full hover:bg-[#C4826A] transition-colors">
+              className="hidden md:flex items-center gap-1.5 bg-[#6B2737] text-white text-sm px-4 py-2 rounded-full hover:bg-[#C4826A] transition-colors">
               <User size={14} /> Masuk
             </Link>
           )}
 
-          <button className="md:hidden text-[#4A2C2A]" aria-label={menuOpen ? "Tutup menu" : "Buka menu"} onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="md:hidden text-[#6B2737]" aria-label={menuOpen ? "Tutup menu" : "Buka menu"} onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -123,7 +123,7 @@ export default function Navbar() {
         <div className="md:hidden bg-[#FAF7F2] border-t border-[#E8C4B8] px-6 py-4 flex flex-col gap-3">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}
-              className="text-[#4A2C2A] hover:text-[#C4826A] transition-colors py-1"
+              className="text-[#6B2737] hover:text-[#C4826A] transition-colors py-1"
               onClick={() => setMenuOpen(false)}>
               {link.label}
             </Link>

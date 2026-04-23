@@ -15,9 +15,9 @@ export default function CartPage() {
     return (
       <div className="min-h-screen bg-[#FAF7F2] pt-24 flex flex-col items-center justify-center px-6">
         <ShoppingBag size={64} className="text-[#E8C4B8] mb-4" />
-        <h2 className="font-display text-2xl text-[#4A2C2A] font-bold mb-2">Keranjang Kosong</h2>
+        <h2 className="font-display text-2xl text-[#6B2737] font-bold mb-2">Keranjang Kosong</h2>
         <p className="text-[#8B5E52] mb-8">Yuk, temukan koleksi cantik kami!</p>
-        <Link href="/shop" className="bg-[#4A2C2A] text-white px-8 py-3 rounded-full hover:bg-[#C4826A] transition-colors">
+        <Link href="/shop" className="bg-[#6B2737] text-white px-8 py-3 rounded-full hover:bg-[#C4826A] transition-colors">
           Mulai Belanja
         </Link>
       </div>
@@ -27,7 +27,7 @@ export default function CartPage() {
   return (
     <div className="min-h-screen bg-[#FAF7F2] pt-24 pb-20">
       <div className="max-w-5xl mx-auto px-6">
-        <h1 className="font-display text-3xl text-[#4A2C2A] font-bold mb-8">
+        <h1 className="font-display text-3xl text-[#6B2737] font-bold mb-8">
           Keranjang <span className="text-[#C4826A]">({totalItems})</span>
         </h1>
 
@@ -42,9 +42,9 @@ export default function CartPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs text-[#8B5E52] uppercase tracking-wide">{item.product.category}</p>
-                  <h3 className="font-display text-[#4A2C2A] font-semibold truncate">{item.product.name}</h3>
+                  <h3 className="font-display text-[#6B2737] font-semibold truncate">{item.product.name}</h3>
                   <p className="text-xs text-[#8B5E52] mt-0.5">{item.size} · {item.color}</p>
-                  <p className="font-bold text-[#4A2C2A] mt-1">{formatPrice(item.product.price)}</p>
+                  <p className="font-bold text-[#6B2737] mt-1">{formatPrice(item.product.price)}</p>
 
                   <div className="flex items-center justify-between mt-3">
                     <div className="flex items-center gap-2 border border-[#E8C4B8] rounded-full px-2 py-1">
@@ -71,7 +71,7 @@ export default function CartPage() {
           {/* Summary */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl p-6 shadow-sm sticky top-28">
-              <h2 className="font-display text-xl text-[#4A2C2A] font-bold mb-4">Ringkasan</h2>
+              <h2 className="font-display text-xl text-[#6B2737] font-bold mb-4">Ringkasan</h2>
 
               <div className="space-y-3 mb-4">
                 <div className="flex justify-between text-sm text-[#8B5E52]">
@@ -92,19 +92,19 @@ export default function CartPage() {
               </div>
 
               <div className="border-t border-[#E8C4B8] pt-4 mb-6">
-                <div className="flex justify-between font-bold text-[#4A2C2A]">
+                <div className="flex justify-between font-bold text-[#6B2737]">
                   <span>Total</span>
                   <span className="text-lg">{formatPrice(grandTotal)}</span>
                 </div>
               </div>
 
               <Link href="/checkout"
-                className="w-full bg-[#4A2C2A] text-white py-3.5 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-[#C4826A] transition-colors mb-3">
+                className="w-full bg-[#6B2737] text-white py-3.5 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-[#C4826A] transition-colors mb-3">
                 Checkout <ArrowRight size={18} />
               </Link>
 
               <Link href="/shop"
-                className="w-full border border-[#E8C4B8] text-[#4A2C2A] py-3 rounded-full text-sm flex items-center justify-center gap-2 hover:border-[#C4826A] transition-colors">
+                className="w-full border border-[#E8C4B8] text-[#6B2737] py-3 rounded-full text-sm flex items-center justify-center gap-2 hover:border-[#C4826A] transition-colors">
                 Lanjut Belanja <ArrowRight size={16} />
               </Link>
             </div>

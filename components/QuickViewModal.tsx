@@ -35,11 +35,11 @@ export default function QuickViewModal({ product, onClose }: { product: Product;
 
           {/* Details */}
           <div className="sm:w-1/2 p-6 flex flex-col">
-            <button onClick={onClose} aria-label="Tutup" className="self-end text-gray-400 hover:text-[#4A2C2A] mb-2">
+            <button onClick={onClose} aria-label="Tutup" className="self-end text-gray-400 hover:text-[#6B2737] mb-2">
               <X size={20} />
             </button>
             <p className="text-xs text-[#8B5E52] uppercase tracking-wide mb-1">{product.category}</p>
-            <h2 className="font-display text-xl text-[#4A2C2A] font-semibold mb-2">{product.name}</h2>
+            <h2 className="font-display text-xl text-[#6B2737] font-semibold mb-2">{product.name}</h2>
 
             <div className="flex items-center gap-1 mb-3">
               {[...Array(5)].map((_, i) => (
@@ -49,7 +49,7 @@ export default function QuickViewModal({ product, onClose }: { product: Product;
             </div>
 
             <div className="mb-3">
-              <p className="text-xl font-bold text-[#4A2C2A]">{formatPrice(product.price)}</p>
+              <p className="text-xl font-bold text-[#6B2737]">{formatPrice(product.price)}</p>
               {product.originalPrice && (
                 <p className="text-sm text-gray-400 line-through">{formatPrice(product.originalPrice)}</p>
               )}
@@ -59,12 +59,12 @@ export default function QuickViewModal({ product, onClose }: { product: Product;
 
             {/* Size */}
             <div className="mb-3">
-              <p className="text-xs font-medium text-[#4A2C2A] mb-2">Ukuran: <span className="text-[#C4826A]">{selectedSize}</span></p>
+              <p className="text-xs font-medium text-[#6B2737] mb-2">Ukuran: <span className="text-[#C4826A]">{selectedSize}</span></p>
               <div className="flex gap-2 flex-wrap">
                 {product.sizes.map((s) => (
                   <button key={s} onClick={() => setSelectedSize(s)}
                     className={`px-3 py-1 text-xs rounded-full border transition-all ${
-                      selectedSize === s ? "bg-[#4A2C2A] text-white border-[#4A2C2A]" : "border-[#E8C4B8] text-[#4A2C2A] hover:border-[#C4826A]"
+                      selectedSize === s ? "bg-[#6B2737] text-white border-[#6B2737]" : "border-[#E8C4B8] text-[#6B2737] hover:border-[#C4826A]"
                     }`}>
                     {s}
                   </button>
@@ -75,7 +75,7 @@ export default function QuickViewModal({ product, onClose }: { product: Product;
             <div className="flex gap-2 mt-auto">
               <button onClick={handleAdd}
                 className={`flex-1 py-2.5 rounded-full text-sm font-medium flex items-center justify-center gap-2 transition-all ${
-                  added ? "bg-green-500 text-white" : "bg-[#4A2C2A] text-white hover:bg-[#C4826A]"
+                  added ? "bg-green-500 text-white" : "bg-[#6B2737] text-white hover:bg-[#C4826A]"
                 }`}>
                 <ShoppingBag size={16} />
                 {added ? "Ditambahkan!" : "Add to Cart"}
@@ -83,7 +83,7 @@ export default function QuickViewModal({ product, onClose }: { product: Product;
               <button onClick={() => toggleWishlist(product.id)}
                 aria-label={wishlisted ? "Hapus dari wishlist" : "Tambah ke wishlist"}
                 className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${
-                  wishlisted ? "bg-[#C4826A] border-[#C4826A] text-white" : "border-[#E8C4B8] text-[#4A2C2A] hover:border-[#C4826A]"
+                  wishlisted ? "bg-[#C4826A] border-[#C4826A] text-white" : "border-[#E8C4B8] text-[#6B2737] hover:border-[#C4826A]"
                 }`}>
                 <Heart size={16} fill={wishlisted ? "currentColor" : "none"} />
               </button>

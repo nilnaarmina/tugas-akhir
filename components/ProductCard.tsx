@@ -29,6 +29,7 @@ export default function ProductCard({ product }: { product: Product }) {
             src={product.image}
             alt={product.name}
             fill
+            unoptimized
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 768px) 50vw, 25vw"
           />
@@ -37,7 +38,7 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.badge && (
             <span className={`absolute top-3 left-3 text-xs font-medium px-2.5 py-1 rounded-full ${
               product.badge === "Best Seller" ? "bg-[#C4826A] text-white" :
-              product.badge === "New" ? "bg-[#4A2C2A] text-white" :
+              product.badge === "New" ? "bg-[#6B2737] text-white" :
               "bg-[#C9A96E] text-white"
             }`}>
               {product.badge}
@@ -69,7 +70,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="p-4">
           <p className="text-xs text-[#8B5E52] mb-1 tracking-wide uppercase">{product.category}</p>
           <Link href={`/product/${product.id}`}>
-            <h3 className="font-display text-[#4A2C2A] font-medium hover:text-[#C4826A] transition-colors line-clamp-1 mb-2">
+            <h3 className="font-display text-[#6B2737] font-medium hover:text-[#C4826A] transition-colors line-clamp-1 mb-2">
               {product.name}
             </h3>
           </Link>
@@ -87,7 +88,7 @@ export default function ProductCard({ product }: { product: Product }) {
           {/* Price + Cart */}
           <div className="flex items-center justify-between">
             <div>
-              <p className="font-semibold text-[#4A2C2A]">{formatPrice(product.price)}</p>
+              <p className="font-semibold text-[#6B2737]">{formatPrice(product.price)}</p>
               {product.originalPrice && (
                 <p className="text-xs text-gray-400 line-through">{formatPrice(product.originalPrice)}</p>
               )}
@@ -96,7 +97,7 @@ export default function ProductCard({ product }: { product: Product }) {
               onClick={handleAddToCart}
               aria-label={`Tambah ${product.name} ke keranjang`}
               className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
-                added ? "bg-green-500 text-white scale-110" : "bg-[#4A2C2A] text-white hover:bg-[#C4826A]"
+                added ? "bg-green-500 text-white scale-110" : "bg-[#6B2737] text-white hover:bg-[#C4826A]"
               }`}
             >
               <ShoppingBag size={16} />

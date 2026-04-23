@@ -3,7 +3,7 @@ import { Instagram, MessageCircle, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#4A2C2A] text-[#FAF7F2]">
+    <footer className="bg-[#6B2737] text-[#FAF7F2]">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}

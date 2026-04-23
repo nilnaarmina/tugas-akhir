@@ -75,20 +75,20 @@ export default function ShopPage() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-8">
           <p className="text-[#C4826A] text-sm tracking-widest uppercase mb-1">Koleksi Kami</p>
-          <h1 className="font-display text-4xl text-[#4A2C2A] font-bold">Shop</h1>
+          <h1 className="font-display text-4xl text-[#6B2737] font-bold">Shop</h1>
         </div>
 
         {/* Filter Bar */}
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <button onClick={() => setShowFilter(!showFilter)}
-            className="flex items-center gap-2 px-4 py-2 border border-[#E8C4B8] rounded-full text-sm text-[#4A2C2A] hover:border-[#C4826A] transition-colors">
+            className="flex items-center gap-2 px-4 py-2 border border-[#E8C4B8] rounded-full text-sm text-[#6B2737] hover:border-[#C4826A] transition-colors">
             <SlidersHorizontal size={16} /> Filter
           </button>
           <div className="flex gap-2 flex-wrap">
             {categories.map((cat) => (
               <button key={cat} onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-full text-sm transition-all ${
-                  selectedCategory === cat ? "bg-[#4A2C2A] text-white" : "border border-[#E8C4B8] text-[#4A2C2A] hover:border-[#C4826A]"
+                  selectedCategory === cat ? "bg-[#6B2737] text-white" : "border border-[#E8C4B8] text-[#6B2737] hover:border-[#C4826A]"
                 }`}>
                 {cat}
               </button>
@@ -96,7 +96,7 @@ export default function ShopPage() {
           </div>
           <div className="ml-auto relative">
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}
-              className="appearance-none pl-4 pr-8 py-2 border border-[#E8C4B8] rounded-full text-sm text-[#4A2C2A] bg-white focus:outline-none focus:border-[#C4826A] cursor-pointer">
+              className="appearance-none pl-4 pr-8 py-2 border border-[#E8C4B8] rounded-full text-sm text-[#6B2737] bg-white focus:outline-none focus:border-[#C4826A] cursor-pointer">
               <option value="terbaru">Terbaru</option>
               <option value="terlaris">Terlaris</option>
               <option value="harga-asc">Harga: Rendah ke Tinggi</option>
@@ -109,12 +109,12 @@ export default function ShopPage() {
         {showFilter && (
           <div className="bg-white rounded-2xl p-6 mb-6 shadow-sm border border-[#F0E0D8] grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <p className="text-xs font-semibold text-[#4A2C2A] uppercase tracking-wide mb-3">Warna</p>
+              <p className="text-xs font-semibold text-[#6B2737] uppercase tracking-wide mb-3">Warna</p>
               <div className="flex flex-wrap gap-2">
                 {colorOptions.map((c) => (
                   <button key={c} onClick={() => setSelectedColor(c)}
                     className={`px-3 py-1.5 rounded-full text-xs transition-all ${
-                      selectedColor === c ? "bg-[#4A2C2A] text-white" : "border border-[#E8C4B8] text-[#4A2C2A] hover:border-[#C4826A]"
+                      selectedColor === c ? "bg-[#6B2737] text-white" : "border border-[#E8C4B8] text-[#6B2737] hover:border-[#C4826A]"
                     }`}>
                     {c}
                   </button>
@@ -122,12 +122,12 @@ export default function ShopPage() {
               </div>
             </div>
             <div>
-              <p className="text-xs font-semibold text-[#4A2C2A] uppercase tracking-wide mb-3">Harga</p>
+              <p className="text-xs font-semibold text-[#6B2737] uppercase tracking-wide mb-3">Harga</p>
               <div className="flex flex-col gap-2">
                 {priceRanges.map((r, i) => (
                   <label key={r.label} className="flex items-center gap-2 cursor-pointer">
                     <input type="radio" name="price" checked={selectedPrice === i} onChange={() => setSelectedPrice(i)} className="accent-[#C4826A]" />
-                    <span className="text-sm text-[#4A2C2A]">{r.label}</span>
+                    <span className="text-sm text-[#6B2737]">{r.label}</span>
                   </label>
                 ))}
               </div>
@@ -138,7 +138,7 @@ export default function ShopPage() {
         {activeFilters.length > 0 && (
           <div className="flex gap-2 mb-4 flex-wrap">
             {activeFilters.map((f) => (
-              <span key={f} className="flex items-center gap-1 bg-[#E8C4B8] text-[#4A2C2A] text-xs px-3 py-1 rounded-full">
+              <span key={f} className="flex items-center gap-1 bg-[#E8C4B8] text-[#6B2737] text-xs px-3 py-1 rounded-full">
                 {f}
                 <button onClick={() => {
                   if (f === selectedCategory) setSelectedCategory("Semua");

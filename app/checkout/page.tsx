@@ -100,8 +100,8 @@ export default function CheckoutPage() {
   if (items.length === 0) {
     return (
       <div className="min-h-screen bg-[#FAF7F2] flex flex-col items-center justify-center gap-4">
-        <p className="text-[#4A2C2A] text-lg">Keranjang kamu kosong.</p>
-        <Link href="/shop" className="bg-[#4A2C2A] text-white px-6 py-2.5 rounded-full hover:bg-[#C4826A] transition-colors">
+        <p className="text-[#6B2737] text-lg">Keranjang kamu kosong.</p>
+        <Link href="/shop" className="bg-[#6B2737] text-white px-6 py-2.5 rounded-full hover:bg-[#C4826A] transition-colors">
           Mulai Belanja
         </Link>
       </div>
@@ -112,7 +112,7 @@ export default function CheckoutPage() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="border-b border-gray-100 px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
-        <Link href="/cart" aria-label="Kembali ke keranjang" className="text-[#4A2C2A] hover:text-[#C4826A] transition-colors">
+        <Link href="/cart" aria-label="Kembali ke keranjang" className="text-[#6B2737] hover:text-[#C4826A] transition-colors">
           <ArrowLeft size={20} />
         </Link>
         <span className="text-sm text-gray-400 tracking-widest uppercase">Checkout</span>
@@ -124,7 +124,7 @@ export default function CheckoutPage() {
         <div className="space-y-8">
           {/* Detail Alamat */}
           <section>
-            <h2 className="text-xl font-bold text-[#4A2C2A] mb-1">Detail Alamat</h2>
+            <h2 className="text-xl font-bold text-[#6B2737] mb-1">Detail Alamat</h2>
             <p className="text-sm text-gray-500 mb-4">
               Apakah Anda memiliki akun?{" "}
               <Link href="/login" className="text-[#C4826A] hover:underline">Login</Link>
@@ -160,7 +160,7 @@ export default function CheckoutPage() {
 
           {/* Metode Pengiriman */}
           <section>
-            <h2 className="text-xl font-bold text-[#4A2C2A] mb-3">Metode Pengiriman</h2>
+            <h2 className="text-xl font-bold text-[#6B2737] mb-3">Metode Pengiriman</h2>
             {!form.city || !form.address ? (
               <div className="bg-[#FFF5F0] border border-[#F0E0D8] rounded-lg px-4 py-3 text-sm text-[#8B5E52]">
                 Lengkapi rincian alamat untuk melihat metode pengiriman yang tersedia.
@@ -175,11 +175,11 @@ export default function CheckoutPage() {
                       <input type="radio" name="shipping" value={opt.id} checked={shipping === opt.id}
                         onChange={() => setShipping(opt.id)} className="accent-[#C4826A]" />
                       <div>
-                        <p className="text-sm font-medium text-[#4A2C2A]">{opt.label}</p>
+                        <p className="text-sm font-medium text-[#6B2737]">{opt.label}</p>
                         <p className="text-xs text-gray-400">Estimasi {opt.est}</p>
                       </div>
                     </div>
-                    <span className="text-sm font-medium text-[#4A2C2A]">{formatPrice(opt.price)}</span>
+                    <span className="text-sm font-medium text-[#6B2737]">{formatPrice(opt.price)}</span>
                   </label>
                 ))}
               </div>
@@ -188,7 +188,7 @@ export default function CheckoutPage() {
 
           {/* Metode Pembayaran */}
           <section>
-            <h2 className="text-xl font-bold text-[#4A2C2A] mb-3">Metode Pembayaran</h2>
+            <h2 className="text-xl font-bold text-[#6B2737] mb-3">Metode Pembayaran</h2>
             <div className="space-y-2">
               {PAYMENT_OPTIONS.map((opt) => (
                 <label key={opt.id} className={`flex items-center justify-between border rounded-lg px-4 py-3 cursor-pointer transition-colors ${
@@ -202,7 +202,7 @@ export default function CheckoutPage() {
                     ) : (
                       <MessageCircle size={20} className="text-[#25D366]" />
                     )}
-                    <span className="text-sm font-medium text-[#4A2C2A]">{opt.label}</span>
+                    <span className="text-sm font-medium text-[#6B2737]">{opt.label}</span>
                   </div>
                   <ChevronRight size={16} className="text-gray-400" />
                 </label>
@@ -222,7 +222,7 @@ export default function CheckoutPage() {
                     <Image src={item.product.image} alt={item.product.name} fill className="object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-[#4A2C2A] line-clamp-2">{item.product.name}</p>
+                    <p className="text-sm font-medium text-[#6B2737] line-clamp-2">{item.product.name}</p>
                     <p className="text-xs text-gray-400 uppercase mt-0.5">{item.color} · {item.size}</p>
                     <p className="text-xs text-gray-400">Jumlah: {item.quantity}</p>
                   </div>
@@ -253,7 +253,7 @@ export default function CheckoutPage() {
                   <input value={voucher} onChange={(e) => setVoucher(e.target.value)}
                     placeholder="Masukkan kode voucher"
                     className="flex-1 border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-[#C4826A]" />
-                  <button className="bg-[#4A2C2A] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#C4826A] transition-colors">
+                  <button className="bg-[#6B2737] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#C4826A] transition-colors">
                     Pakai
                   </button>
                 </div>
@@ -270,7 +270,7 @@ export default function CheckoutPage() {
                 <span>Pengiriman</span>
                 <span>{shippingCost > 0 ? formatPrice(shippingCost) : "–"}</span>
               </div>
-              <div className="border-t border-gray-100 pt-3 flex justify-between font-bold text-[#4A2C2A]">
+              <div className="border-t border-gray-100 pt-3 flex justify-between font-bold text-[#6B2737]">
                 <span>Total Pembayaran</span>
                 <span className="text-[#C4826A] text-lg">{formatPrice(grandTotal)}</span>
               </div>
@@ -284,12 +284,12 @@ export default function CheckoutPage() {
               </div>
 
               <button onClick={handleOrder}
-                className="w-full bg-[#4A2C2A] text-white py-3.5 rounded-full font-medium hover:bg-[#C4826A] transition-colors">
+                className="w-full bg-[#6B2737] text-white py-3.5 rounded-full font-medium hover:bg-[#C4826A] transition-colors">
                 Order Sekarang
               </button>
               <p className="text-center text-xs text-gray-400">
                 Dengan melakukan pesanan, telah setuju dengan{" "}
-                <span className="font-semibold text-[#4A2C2A]">Syarat & Ketentuan</span>
+                <span className="font-semibold text-[#6B2737]">Syarat & Ketentuan</span>
               </p>
             </div>
           </div>

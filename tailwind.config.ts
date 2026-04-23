@@ -13,7 +13,7 @@ const config: Config = {
         blush: "#E8C4B8",
         rose: "#C4826A",
         mocha: "#8B5E52",
-        espresso: "#4A2C2A",
+        espresso: "#6B2737",
         sage: "#A8B5A0",
         gold: "#C9A96E",
       },

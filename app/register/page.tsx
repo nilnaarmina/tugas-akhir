@@ -47,12 +47,12 @@ export default function RegisterPage() {
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl">✓</span>
           </div>
-          <h2 className="font-display text-2xl text-[#4A2C2A] font-bold mb-2">Cek Email Kamu!</h2>
+          <h2 className="font-display text-2xl text-[#6B2737] font-bold mb-2">Cek Email Kamu!</h2>
           <p className="text-[#8B5E52] mb-6">
             Kami sudah kirim link konfirmasi ke <strong>{email}</strong>. 
             Klik link tersebut untuk mengaktifkan akun.
           </p>
-          <Link href="/login" className="bg-[#4A2C2A] text-white px-8 py-3 rounded-full hover:bg-[#C4826A] transition-colors">
+          <Link href="/login" className="bg-[#6B2737] text-white px-8 py-3 rounded-full hover:bg-[#C4826A] transition-colors">
             Ke Halaman Login
           </Link>
         </div>
@@ -65,12 +65,12 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/">
-            <Image src="/Logo.png.png" alt="Aflaha" width={140} height={56} className="object-contain mx-auto" />
+            <Image src="/Logo.png" alt="Aflaha" width={140} height={56} className="object-contain mx-auto" />
           </Link>
         </div>
 
         <div className="bg-white rounded-3xl shadow-sm border border-[#F0E0D8] p-8">
-          <h1 className="font-display text-2xl text-[#4A2C2A] font-bold mb-1">Buat Akun</h1>
+          <h1 className="font-display text-2xl text-[#6B2737] font-bold mb-1">Buat Akun</h1>
           <p className="text-[#8B5E52] text-sm mb-6">Bergabung dengan keluarga Aflaha</p>
 
           {error && (
@@ -81,14 +81,14 @@ export default function RegisterPage() {
 
           <form onSubmit={handleRegister} className="space-y-4">
             <div>
-              <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-1.5 block">Email</label>
+              <label className="text-xs font-medium text-[#6B2737] uppercase tracking-wide mb-1.5 block">Email</label>
               <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
                 placeholder="email@contoh.com"
                 className="w-full px-4 py-3 rounded-xl border border-[#E8C4B8] text-sm focus:outline-none focus:border-[#C4826A] bg-[#FAF7F2] transition-colors"
               />
             </div>
             <div>
-              <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-1.5 block">Password</label>
+              <label className="text-xs font-medium text-[#6B2737] uppercase tracking-wide mb-1.5 block">Password</label>
               <div className="relative">
                 <input type={showPass ? "text" : "password"} required value={password}
                   onChange={(e) => setPassword(e.target.value)} placeholder="Min. 6 karakter"
@@ -101,7 +101,7 @@ export default function RegisterPage() {
               </div>
             </div>
             <div>
-              <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-1.5 block">Konfirmasi Password</label>
+              <label className="text-xs font-medium text-[#6B2737] uppercase tracking-wide mb-1.5 block">Konfirmasi Password</label>
               <input type="password" required value={confirm} onChange={(e) => setConfirm(e.target.value)}
                 placeholder="Ulangi password"
                 className="w-full px-4 py-3 rounded-xl border border-[#E8C4B8] text-sm focus:outline-none focus:border-[#C4826A] bg-[#FAF7F2] transition-colors"
@@ -109,7 +109,7 @@ export default function RegisterPage() {
             </div>
 
             <button type="submit" disabled={loading}
-              className="w-full bg-[#4A2C2A] text-white py-3.5 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-[#C4826A] transition-colors disabled:opacity-60">
+              className="w-full bg-[#6B2737] text-white py-3.5 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-[#C4826A] transition-colors disabled:opacity-60">
               <UserPlus size={18} />
               {loading ? "Mendaftar..." : "Daftar"}
             </button>

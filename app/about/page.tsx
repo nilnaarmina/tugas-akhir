@@ -35,7 +35,7 @@ export default function AboutPage() {
           fill
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-[#4A2C2A]/70" />
+        <div className="absolute inset-0 bg-[#6B2737]/70" />
         <div className="relative z-10 text-center text-white px-6">
           <p className="text-[#E8C4B8] tracking-[0.3em] uppercase text-sm mb-3">Tentang Kami</p>
           <h1 className="font-display text-5xl font-bold">Aflaha Hijab</h1>
@@ -48,7 +48,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="reveal">
             <p className="text-[#C4826A] text-sm tracking-widest uppercase mb-3">Cerita Kami</p>
-            <h2 className="font-display text-4xl text-[#4A2C2A] font-bold mb-6 leading-tight">
+            <h2 className="font-display text-4xl text-[#6B2737] font-bold mb-6 leading-tight">
               Tiga Dekade Melayani
               <br />
               <span className="italic text-[#C4826A]">dengan Hati</span>
@@ -72,13 +72,14 @@ export default function AboutPage() {
           <div className="relative reveal">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+                src="https://aogcfyukflljofveppup.supabase.co/storage/v1/object/public/assets.aflaha/abi%20umi.png"
                 alt="Aflaha Story"
                 fill
+                unoptimized
                 className="object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-[#4A2C2A] text-white rounded-2xl p-5 shadow-xl">
+            <div className="absolute -bottom-6 -left-6 bg-[#6B2737] text-white rounded-2xl p-5 shadow-xl">
               <p className="font-display text-4xl font-bold text-[#E8C4B8]">30+</p>
               <p className="text-sm text-white/80">Tahun Pengalaman</p>
             </div>
@@ -87,7 +88,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-[#4A2C2A]">
+      <section className="py-16 bg-[#6B2737]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { icon: Award, value: "1994", label: "Tahun Berdiri" },
@@ -108,7 +109,7 @@ export default function AboutPage() {
       <section className="py-20 max-w-4xl mx-auto px-6">
         <div className="text-center mb-12 reveal">
           <p className="text-[#C4826A] text-sm tracking-widest uppercase mb-2">Perjalanan Kami</p>
-          <h2 className="font-display text-4xl text-[#4A2C2A] font-bold">Milestone Aflaha</h2>
+          <h2 className="font-display text-4xl text-[#6B2737] font-bold">Milestone Aflaha</h2>
         </div>
         <div className="relative">
           <div className="absolute left-8 top-0 bottom-0 w-px bg-[#E8C4B8]" />
@@ -121,7 +122,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="bg-white rounded-2xl p-5 shadow-sm flex-1 hover:shadow-md transition-shadow">
-                  <h3 className="font-display text-[#4A2C2A] font-semibold text-lg mb-1">{m.title}</h3>
+                  <h3 className="font-display text-[#6B2737] font-semibold text-lg mb-1">{m.title}</h3>
                   <p className="text-[#8B5E52] text-sm leading-relaxed">{m.desc}</p>
                 </div>
               </div>
@@ -149,7 +150,7 @@ export default function AboutPage() {
           ].map((item) => (
             <div key={item.title} className="bg-white rounded-2xl p-8 shadow-sm reveal">
               <div className="w-12 h-1 bg-[#C4826A] mb-4 rounded-full" />
-              <h3 className="font-display text-2xl text-[#4A2C2A] font-bold mb-3">{item.title}</h3>
+              <h3 className="font-display text-2xl text-[#6B2737] font-bold mb-3">{item.title}</h3>
               <p className="text-[#8B5E52] leading-relaxed">{item.content}</p>
             </div>
           ))}

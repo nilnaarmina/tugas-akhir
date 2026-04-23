@@ -90,12 +90,12 @@ export default function AdminPage() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="font-display text-3xl text-[#4A2C2A] font-bold">Admin Dashboard</h1>
+            <h1 className="font-display text-3xl text-[#6B2737] font-bold">Admin Dashboard</h1>
             <p className="text-[#8B5E52] text-sm mt-1">Kelola produk, pesanan, dan pengguna Aflaha</p>
           </div>
           {activeTab === "products" && (
             <button onClick={() => { setEditProduct(null); setShowForm(true); }}
-              className="flex items-center gap-2 bg-[#4A2C2A] text-white px-5 py-2.5 rounded-full hover:bg-[#C4826A] transition-colors text-sm font-medium">
+              className="flex items-center gap-2 bg-[#6B2737] text-white px-5 py-2.5 rounded-full hover:bg-[#C4826A] transition-colors text-sm font-medium">
               <Plus size={16} /> Tambah Produk
             </button>
           )}
@@ -111,7 +111,7 @@ export default function AdminPage() {
           ].map(({ icon: Icon, label, value }) => (
             <div key={label} className="bg-white rounded-2xl p-5 shadow-sm border border-[#F0E0D8]">
               <Icon size={20} className="text-[#C4826A] mb-2" />
-              <p className="text-2xl font-bold text-[#4A2C2A]">{value}</p>
+              <p className="text-2xl font-bold text-[#6B2737]">{value}</p>
               <p className="text-xs text-[#8B5E52]">{label}</p>
             </div>
           ))}
@@ -122,7 +122,7 @@ export default function AdminPage() {
           {(["products", "orders", "users"] as const).map((tab) => (
             <button key={tab} onClick={() => setActiveTab(tab)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                activeTab === tab ? "bg-[#4A2C2A] text-white" : "border border-[#E8C4B8] text-[#4A2C2A] hover:border-[#C4826A]"
+                activeTab === tab ? "bg-[#6B2737] text-white" : "border border-[#E8C4B8] text-[#6B2737] hover:border-[#C4826A]"
               }`}>
               {tab === "products" ? "Produk" : tab === "orders" ? "Pesanan" : "Pengguna"}
             </button>
@@ -149,11 +149,11 @@ export default function AdminPage() {
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-3">
                           <img src={p.image} alt={p.name} className="w-10 h-12 object-cover rounded-lg bg-[#F5EDE8]" />
-                          <span className="font-medium text-[#4A2C2A] text-sm">{p.name}</span>
+                          <span className="font-medium text-[#6B2737] text-sm">{p.name}</span>
                         </div>
                       </td>
                       <td className="px-4 py-3 text-sm text-[#8B5E52]">{p.category}</td>
-                      <td className="px-4 py-3 text-sm font-medium text-[#4A2C2A]">{formatPrice(p.price)}</td>
+                      <td className="px-4 py-3 text-sm font-medium text-[#6B2737]">{formatPrice(p.price)}</td>
                       <td className="px-4 py-3">
                         <button onClick={() => handleToggleActive(p.id, p.is_active)}
                           className={`text-xs px-3 py-1 rounded-full font-medium transition-colors ${
@@ -193,7 +193,7 @@ export default function AdminPage() {
               {["semua", ...ORDER_STATUSES].map((s) => (
                 <button key={s} onClick={() => setOrderFilter(s)}
                   className={`px-4 py-1.5 rounded-full text-xs font-medium capitalize transition-all ${
-                    orderFilter === s ? "bg-[#4A2C2A] text-white" : "border border-[#E8C4B8] text-[#4A2C2A] hover:border-[#C4826A]"
+                    orderFilter === s ? "bg-[#6B2737] text-white" : "border border-[#E8C4B8] text-[#6B2737] hover:border-[#C4826A]"
                   }`}>
                   {s}
                 </button>
@@ -211,7 +211,7 @@ export default function AdminPage() {
                   <div className="px-5 py-4 flex flex-wrap items-center justify-between gap-3 cursor-pointer"
                     onClick={() => setExpandedOrder(expandedOrder === order.id ? null : order.id)}>
                     <div>
-                      <p className="font-semibold text-[#4A2C2A] text-sm">{order.customer_name}</p>
+                      <p className="font-semibold text-[#6B2737] text-sm">{order.customer_name}</p>
                       <p className="text-xs text-[#8B5E52]">{order.customer_phone} · {order.city}</p>
                       <p className="text-xs text-gray-400 mt-0.5">{new Date(order.created_at).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}</p>
                     </div>
@@ -231,7 +231,7 @@ export default function AdminPage() {
                         <p className="text-xs font-semibold text-[#8B5E52] uppercase mb-2">Item Pesanan</p>
                         <div className="space-y-2">
                           {(order.items as any[]).map((item: any, i: number) => (
-                            <div key={i} className="flex justify-between text-sm text-[#4A2C2A]">
+                            <div key={i} className="flex justify-between text-sm text-[#6B2737]">
                               <span>{item.name} <span className="text-[#8B5E52]">({item.size}, {item.color}) x{item.quantity}</span></span>
                               <span className="font-medium">{formatPrice(item.price * item.quantity)}</span>
                             </div>
@@ -243,16 +243,16 @@ export default function AdminPage() {
                       <div className="grid grid-cols-2 gap-3 text-sm">
                         <div>
                           <p className="text-xs text-[#8B5E52]">Alamat</p>
-                          <p className="text-[#4A2C2A]">{order.address}, {order.city}</p>
+                          <p className="text-[#6B2737]">{order.address}, {order.city}</p>
                         </div>
                         <div>
                           <p className="text-xs text-[#8B5E52]">Pembayaran</p>
-                          <p className="text-[#4A2C2A] capitalize">{order.payment_method} · {order.shipping_method}</p>
+                          <p className="text-[#6B2737] capitalize">{order.payment_method} · {order.shipping_method}</p>
                         </div>
                         {order.note && (
                           <div className="col-span-2">
                             <p className="text-xs text-[#8B5E52]">Catatan</p>
-                            <p className="text-[#4A2C2A]">{order.note}</p>
+                            <p className="text-[#6B2737]">{order.note}</p>
                           </div>
                         )}
                       </div>
@@ -264,7 +264,7 @@ export default function AdminPage() {
                           <button key={s} onClick={() => handleOrderStatus(order.id, s)}
                             disabled={order.status === s}
                             className={`px-3 py-1.5 rounded-full text-xs font-medium capitalize transition-all disabled:opacity-40 ${
-                              order.status === s ? "bg-[#4A2C2A] text-white" : "border border-[#E8C4B8] text-[#4A2C2A] hover:border-[#C4826A]"
+                              order.status === s ? "bg-[#6B2737] text-white" : "border border-[#E8C4B8] text-[#6B2737] hover:border-[#C4826A]"
                             }`}>
                             {s}
                           </button>
@@ -296,7 +296,7 @@ export default function AdminPage() {
                       <td className="px-4 py-3 text-sm text-[#8B5E52]">{u.email ?? u.user_id?.slice(0, 20) + "..."}</td>
                       <td className="px-4 py-3">
                         <span className={`text-xs px-3 py-1 rounded-full font-medium ${
-                          u.role === "admin" ? "bg-[#E8C4B8] text-[#4A2C2A]" : "bg-gray-100 text-gray-600"
+                          u.role === "admin" ? "bg-[#E8C4B8] text-[#6B2737]" : "bg-gray-100 text-gray-600"
                         }`}>
                           {u.role}
                         </span>

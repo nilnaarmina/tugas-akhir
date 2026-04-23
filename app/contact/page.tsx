@@ -24,7 +24,7 @@ export default function ContactPage() {
         {/* Header */}
         <div className="text-center mb-14">
           <p className="text-[#C4826A] text-sm tracking-widest uppercase mb-2">Hubungi Kami</p>
-          <h1 className="font-display text-4xl text-[#4A2C2A] font-bold mb-3">Kami Siap Membantu</h1>
+          <h1 className="font-display text-4xl text-[#6B2737] font-bold mb-3">Kami Siap Membantu</h1>
           <p className="text-[#8B5E52] max-w-md mx-auto">
             Ada pertanyaan, ingin pesan seragam, atau sekadar ingin tahu lebih banyak? Jangan ragu untuk menghubungi kami.
           </p>
@@ -64,7 +64,7 @@ export default function ContactPage() {
                 <Mail size={22} className="text-[#C4826A]" />
               </div>
               <div>
-                <p className="font-semibold text-[#4A2C2A]">Email</p>
+                <p className="font-semibold text-[#6B2737]">Email</p>
                 <p className="text-sm text-[#8B5E52]">aflahahijab@gmail.com</p>
               </div>
             </a>
@@ -89,11 +89,11 @@ export default function ContactPage() {
           {/* Form */}
           <div className="lg:col-span-3">
             <div className="bg-white rounded-3xl p-8 shadow-sm border border-[#F0E0D8]">
-              <h2 className="font-display text-2xl text-[#4A2C2A] font-bold mb-6">Kirim Pesan</h2>
+              <h2 className="font-display text-2xl text-[#6B2737] font-bold mb-6">Kirim Pesan</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-1.5 block">Nama</label>
+                    <label className="text-xs font-medium text-[#6B2737] uppercase tracking-wide mb-1.5 block">Nama</label>
                     <input
                       type="text"
                       required
@@ -104,7 +104,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-1.5 block">Email</label>
+                    <label className="text-xs font-medium text-[#6B2737] uppercase tracking-wide mb-1.5 block">Email</label>
                     <input
                       type="email"
                       required
@@ -116,7 +116,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div>
-                  <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-1.5 block">Subjek</label>
+                  <label className="text-xs font-medium text-[#6B2737] uppercase tracking-wide mb-1.5 block">Subjek</label>
                   <input
                     type="text"
                     value={form.subject}
@@ -126,7 +126,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-1.5 block">Pesan</label>
+                  <label className="text-xs font-medium text-[#6B2737] uppercase tracking-wide mb-1.5 block">Pesan</label>
                   <textarea
                     required
                     rows={5}
@@ -139,7 +139,7 @@ export default function ContactPage() {
                 <div className="flex gap-3">
                   <button type="submit"
                     className={`flex-1 py-3.5 rounded-full font-medium flex items-center justify-center gap-2 transition-all ${
-                      sent ? "bg-green-500 text-white" : "bg-[#4A2C2A] text-white hover:bg-[#C4826A]"
+                      sent ? "bg-green-500 text-white" : "bg-[#6B2737] text-white hover:bg-[#C4826A]"
                     }`}>
                     <Send size={16} />
                     {sent ? "Pesan Terkirim!" : "Kirim Pesan"}

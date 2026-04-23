@@ -44,12 +44,12 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/">
-            <Image src="/Logo.png.png" alt="Aflaha" width={140} height={56} className="object-contain mx-auto" />
+            <Image src="/Logo.png" alt="Aflaha" width={140} height={56} className="object-contain mx-auto" />
           </Link>
         </div>
 
         <div className="bg-white rounded-3xl shadow-sm border border-[#F0E0D8] p-8">
-          <h1 className="font-display text-2xl text-[#4A2C2A] font-bold mb-1">Selamat Datang</h1>
+          <h1 className="font-display text-2xl text-[#6B2737] font-bold mb-1">Selamat Datang</h1>
           <p className="text-[#8B5E52] text-sm mb-6">Masuk ke akun Aflaha kamu</p>
 
           {error && (
@@ -60,7 +60,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-1.5 block">Email</label>
+              <label className="text-xs font-medium text-[#6B2737] uppercase tracking-wide mb-1.5 block">Email</label>
               <input
                 type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
                 placeholder="email@contoh.com"
@@ -68,7 +68,7 @@ export default function LoginPage() {
               />
             </div>
             <div>
-              <label className="text-xs font-medium text-[#4A2C2A] uppercase tracking-wide mb-1.5 block">Password</label>
+              <label className="text-xs font-medium text-[#6B2737] uppercase tracking-wide mb-1.5 block">Password</label>
               <div className="relative">
                 <input
                   type={showPass ? "text" : "password"} required value={password}
@@ -84,7 +84,7 @@ export default function LoginPage() {
             </div>
 
             <button type="submit" disabled={loading}
-              className="w-full bg-[#4A2C2A] text-white py-3.5 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-[#C4826A] transition-colors disabled:opacity-60">
+              className="w-full bg-[#6B2737] text-white py-3.5 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-[#C4826A] transition-colors disabled:opacity-60">
               <LogIn size={18} />
               {loading ? "Masuk..." : "Masuk"}
             </button>

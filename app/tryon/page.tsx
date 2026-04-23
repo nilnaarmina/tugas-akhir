@@ -78,7 +78,7 @@ export default function TryOnPage() {
         {/* Header */}
         <div className="text-center mb-10">
           <p className="text-[#C4826A] text-sm tracking-widest uppercase mb-2">Teknologi AI</p>
-          <h1 className="font-display text-4xl text-[#4A2C2A] font-bold mb-3">Virtual Try-On</h1>
+          <h1 className="font-display text-4xl text-[#6B2737] font-bold mb-3">Virtual Try-On</h1>
           <p className="text-[#8B5E52] max-w-md mx-auto">Upload foto kamu dan foto baju, AI akan menampilkan bagaimana baju tersebut terlihat di badanmu.</p>
         </div>
 
@@ -91,7 +91,7 @@ export default function TryOnPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {/* Upload Foto Kamu */}
           <div className="space-y-3">
-            <p className="text-sm font-semibold text-[#4A2C2A] text-center">1. Foto Kamu (Full Body)</p>
+            <p className="text-sm font-semibold text-[#6B2737] text-center">1. Foto Kamu (Full Body)</p>
             <div
               onClick={() => humanRef.current?.click()}
               className="aspect-[3/4] rounded-2xl border-2 border-dashed border-[#E8C4B8] bg-white flex flex-col items-center justify-center cursor-pointer hover:border-[#C4826A] transition-colors overflow-hidden relative">
@@ -110,7 +110,7 @@ export default function TryOnPage() {
 
           {/* Upload Foto Baju */}
           <div className="space-y-3">
-            <p className="text-sm font-semibold text-[#4A2C2A] text-center">2. Foto Baju</p>
+            <p className="text-sm font-semibold text-[#6B2737] text-center">2. Foto Baju</p>
             <div
               onClick={() => garmentRef.current?.click()}
               className="aspect-[3/4] rounded-2xl border-2 border-dashed border-[#E8C4B8] bg-white flex flex-col items-center justify-center cursor-pointer hover:border-[#C4826A] transition-colors overflow-hidden relative">
@@ -129,7 +129,7 @@ export default function TryOnPage() {
 
           {/* Hasil */}
           <div className="space-y-3">
-            <p className="text-sm font-semibold text-[#4A2C2A] text-center">3. Hasil Try-On</p>
+            <p className="text-sm font-semibold text-[#6B2737] text-center">3. Hasil Try-On</p>
             <div className="aspect-[3/4] rounded-2xl border-2 border-[#E8C4B8] bg-white flex flex-col items-center justify-center overflow-hidden">
               {loading ? (
                 <div className="text-center p-6">
@@ -157,13 +157,13 @@ export default function TryOnPage() {
 
         <div className="flex gap-3 justify-center">
           <button onClick={handleTryOn} disabled={loading || !humanImage || !garmentImage}
-            className="flex items-center gap-2 bg-[#4A2C2A] text-white px-8 py-3.5 rounded-full font-medium hover:bg-[#C4826A] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            className="flex items-center gap-2 bg-[#6B2737] text-white px-8 py-3.5 rounded-full font-medium hover:bg-[#C4826A] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
             {loading ? <Loader2 size={18} className="animate-spin" /> : <Sparkles size={18} />}
             {loading ? "Memproses..." : "Coba Sekarang"}
           </button>
           {(humanPreview || garmentPreview || result) && (
             <button onClick={reset}
-              className="flex items-center gap-2 border border-[#E8C4B8] text-[#4A2C2A] px-6 py-3.5 rounded-full hover:border-[#C4826A] transition-colors">
+              className="flex items-center gap-2 border border-[#E8C4B8] text-[#6B2737] px-6 py-3.5 rounded-full hover:border-[#C4826A] transition-colors">
               <RefreshCw size={16} /> Reset
             </button>
           )}

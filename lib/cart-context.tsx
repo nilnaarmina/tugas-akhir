@@ -1,6 +1,7 @@
 "use client";
-import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react";
 import { Product } from "./data";
+import { createClient } from "@/lib/supabase/client";
 
 export interface CartItem {
   product: Product;
@@ -27,6 +28,17 @@ const CartContext = createContext<CartContextType | null>(null);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [wishlist, setWishlist] = useState<string[]>([]);
+
+  useEffect(() => {
+    const supabase = createClient();
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event === "SIGNED_OUT") {
+        setItems([]);
+        setWishlist([]);
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
   const addToCart = useCallback((product: Product, size: string, color: string) => {
     setItems((prev) => {
@@ -63,7 +75,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const totalPrice = items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ items, wishlist, addToCart, removeFromCart, updateQuantity, toggleWishlist, isWishlisted, totalItems, totalPrice, clearCart: () => setItems([]) }}>
+    <CartContext.Provider value={{ items, wishlist, addToCart, removeFromCart, updateQuantity, toggleWishlist, isWishlisted, totalItems, totalPrice, clearCart: () => { setItems([]); setWishlist([]); } }}>
       {children}
     </CartContext.Provider>
   );

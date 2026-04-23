@@ -70,7 +70,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="p-4">
           <p className="text-xs text-[#8B5E52] mb-1 tracking-wide uppercase">{product.category}</p>
           <Link href={`/product/${product.id}`}>
-            <h3 className="font-display text-[#6B2737] font-medium hover:text-[#C4826A] transition-colors line-clamp-1 mb-2">
+            <h3 className="text-[#6B2737] font-medium hover:text-[#C4826A] transition-colors line-clamp-1 mb-2">
               {product.name}
             </h3>
           </Link>

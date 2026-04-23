@@ -71,7 +71,7 @@ export default function ShopPage() {
   ].filter(Boolean) as string[];
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2] pt-32 pb-20">
+    <div className="min-h-screen bg-[#FAF7F2] pt-36 pb-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-8">
           <p className="text-[#C4826A] text-sm tracking-widest uppercase mb-1">Koleksi Kami</p>

@@ -31,6 +31,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     const fetch = async () => {
       const { data } = await supabase.from("products").select("*").eq("id", id).single();
       if (data) {
+        const images = data.images?.length ? data.images : [data.image];
+        // Pastikan foto utama selalu ada di index 0
+        const allImages = images.includes(data.image) ? images : [data.image, ...images].filter(Boolean);
         const mapped = {
           id: data.id,
           name: data.name,
@@ -38,7 +41,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           originalPrice: data.original_price,
           category: data.category,
           colors: data.colors ?? [],
-          images: data.images?.length ? data.images : [data.image],
+          images: allImages,
           image: data.image,
           badge: data.badge,
           material: data.material,
@@ -99,7 +102,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const wishlisted = isWishlisted(product.id);
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2] pt-24 pb-20">
+    <div className="min-h-screen bg-[#FAF7F2] pt-36 pb-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-[#8B5E52] mb-8">
@@ -134,7 +137,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           {/* Details */}
           <div className="flex flex-col">
             <p className="text-[#C4826A] text-sm tracking-widest uppercase mb-2">{product.category}</p>
-            <h1 className="font-display text-3xl sm:text-4xl text-[#6B2737] font-bold mb-3">{product.name}</h1>
+            <h1 className="text-3xl sm:text-4xl text-[#6B2737] font-bold mb-3">{product.name}</h1>
 
             <div className="flex items-center gap-2 mb-4">
               <div className="flex">
@@ -198,7 +201,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <div className="flex gap-2 flex-wrap mb-3">
                   {product.sizes.map((s: string) => (
                     <button key={s} onClick={() => setSelectedSize(s)}
-                      className={`w-12 h-10 rounded-lg text-sm font-medium border transition-all ${selectedSize === s ? "bg-[#6B2737] text-white border-[#6B2737]" : "border-[#E8C4B8] text-[#6B2737] hover:border-[#C4826A]"}`}>
+                      className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all ${selectedSize === s ? "bg-[#6B2737] text-white border-[#6B2737]" : "border-[#E8C4B8] text-[#6B2737] hover:border-[#C4826A]"}`}>
                       {s}
                     </button>
                   ))}
@@ -254,6 +257,56 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </div>
           </div>
         </div>
+
+        {/* Reviews - khusus Exlusive French Khimar */}
+        {product.id === "bc489eef-5f2e-4689-bbe5-e1a90c793e90" && (
+          <div className="mb-16">
+            <h2 className="font-display text-2xl text-[#6B2737] font-bold mb-6">Ulasan Pelanggan</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  name: "Ummu Fatimah",
+                  location: "Surabaya",
+                  rating: 5,
+                  date: "12 April 2026",
+                  comment: "Masya Allah, kualitasnya luar biasa! Bahannya adem banget, tidak panas meski dipakai seharian. Cutting syar'inya sempurna, benar-benar menutup aurat dengan baik. Sangat puas dengan pembelian ini!",
+                  size: "Standar",
+                  color: "Navy",
+                },
+                {
+                  name: "Kak Ririn",
+                  location: "Bandung",
+                  rating: 5,
+                  date: "3 April 2026",
+                  comment: "Sudah beli 3x di Aflaha dan selalu puas. French Khimar ini favoritku, jahitannya rapi dan bahannya tidak mudah kusut. Cocok untuk aktivitas sehari-hari maupun acara formal.",
+                  size: "Jumbo",
+                  color: "Soft Pink",
+                },
+              ].map((r, i) => (
+                <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-[#F0E0D8]">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-[#C4826A] flex items-center justify-center text-white font-semibold text-sm">
+                        {r.name[0]}
+                      </div>
+                      <div>
+                        <p className="font-medium text-[#6B2737] text-sm">{r.name}</p>
+                        <p className="text-xs text-[#8B5E52]">{r.location} · {r.date}</p>
+                      </div>
+                    </div>
+                    <div className="flex">
+                      {[...Array(r.rating)].map((_, i) => (
+                        <Star key={i} size={13} className="text-[#C9A96E] fill-[#C9A96E]" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-sm text-[#4A2C2A] leading-relaxed italic mb-3">&ldquo;{r.comment}&rdquo;</p>
+                  <p className="text-xs text-[#8B5E52]">Ukuran: {r.size} · Warna: {r.color}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {related.length > 0 && (
           <div>

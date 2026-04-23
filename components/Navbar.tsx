@@ -62,7 +62,7 @@ export default function Navbar() {
 
         {/* Icons */}
         <div className="flex items-center gap-3">
-          <Link href="/shop" aria-label="Wishlist" className="relative text-[#6B2737] hover:text-[#C4826A] transition-colors">
+          <Link href="/wishlist" aria-label="Wishlist" className="relative text-[#6B2737] hover:text-[#C4826A] transition-colors">
             <Heart size={20} />
             {wishlist.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-[#C4826A] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">

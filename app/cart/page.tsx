@@ -25,7 +25,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2] pt-24 pb-20">
+    <div className="min-h-screen bg-[#FAF7F2] pt-36 pb-20">
       <div className="max-w-5xl mx-auto px-6">
         <h1 className="font-display text-3xl text-[#6B2737] font-bold mb-8">
           Keranjang <span className="text-[#C4826A]">({totalItems})</span>
@@ -38,7 +38,7 @@ export default function CartPage() {
               <div key={`${item.product.id}-${item.size}`}
                 className="bg-white rounded-2xl p-4 flex gap-4 shadow-sm hover:shadow-md transition-shadow">
                 <div className="relative w-24 h-28 rounded-xl overflow-hidden bg-[#F5EDE8] shrink-0">
-                  <Image src={item.product.image} alt={item.product.name} fill className="object-cover" />
+                  <Image src={item.product.image} alt={item.product.name} fill unoptimized className="object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs text-[#8B5E52] uppercase tracking-wide">{item.product.category}</p>

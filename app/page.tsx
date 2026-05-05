@@ -70,9 +70,9 @@ export default function HomePage() {
               Since 1994 · Hijab Expert Syar&apos;i
             </p>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-white font-bold leading-tight mb-6 animate-fade-up">
-              Elegan dalam
+              Syar&apos;i, Elegan,
               <br />
-              <span className="text-white italic drop-shadow-lg">Kesyar&apos;ian</span>
+              <span className="text-white italic drop-shadow-lg">Berkelas</span>
             </h1>
             <p className="text-white/80 text-lg mb-10 leading-relaxed animate-fade-up">
               Lebih dari 30 tahun kami hadir untuk muslimah Indonesia. 
